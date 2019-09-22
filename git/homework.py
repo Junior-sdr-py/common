@@ -15,11 +15,7 @@ def is_two_object_has_same_value(first: Any, second: Any) -> bool:
     If @first and @second has same value should return True
     In another case should return False
     """
-    if first == second:
-        return True
-    else:
-        return False
-    pass
+    return first == second
 
 
 def is_two_objects_has_same_type(first: Any, second: Any) -> bool:
@@ -27,10 +23,7 @@ def is_two_objects_has_same_type(first: Any, second: Any) -> bool:
     If @first and @second has same type should return True
     In another case should return False
     """
-    if type(first) == type(second):
-        return True
-    else:
-        return False
+    return type(first) == type(second)
 
 
 def is_two_objects_is_the_same_objects(first: Any, second: Any) -> bool:
@@ -38,10 +31,8 @@ def is_two_objects_is_the_same_objects(first: Any, second: Any) -> bool:
     If @first and @second has same type should return True
     In another case should return False
     """
-    if id(first) == id(second):
-        return True
-    else:
-        return False
+    return id(first) == id(second)
+
 
 
 def multiple_ints(first_value: int, second_value: int) -> int:
@@ -132,4 +123,11 @@ def simple_sort(data: List[int]) -> List[list]:
     Returns:
 
     """
-    return sorted(data)
+    for i in range(len(data)-1,0,-1):
+        for j in range(i):
+            if data[j] > data[j+1]:
+                temp=data[j]
+                data[j]=data[j+1]
+                data[j+1]=temp
+    return data
+
