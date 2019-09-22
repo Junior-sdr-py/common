@@ -15,6 +15,10 @@ def is_two_object_has_same_value(first: Any, second: Any) -> bool:
     If @first and @second has same value should return True
     In another case should return False
     """
+    if first == second:
+        return True
+    else:
+        return False
     pass
 
 
@@ -23,7 +27,10 @@ def is_two_objects_has_same_type(first: Any, second: Any) -> bool:
     If @first and @second has same type should return True
     In another case should return False
     """
-    pass
+    if type(first) == type(second):
+        return True
+    else:
+        return False
 
 
 def is_two_objects_is_the_same_objects(first: Any, second: Any) -> bool:
@@ -31,80 +38,62 @@ def is_two_objects_is_the_same_objects(first: Any, second: Any) -> bool:
     If @first and @second has same type should return True
     In another case should return False
     """
-    pass
+    if id(first) == id(second):
+        return True
+    else:
+        return False
 
 
 def multiple_ints(first_value: int, second_value: int) -> int:
     """
-    Should calculate product of all args.
-    if first_value or second_value is not int should raise ValueError
+        Should calculate product of all args.
+        if first_value or second_value is not int should raise ValueError
 
-    Raises:
-        ValueError
+        Raises:
+            ValueError
 
-    Params:
-        first_value: value for multiply
-        second_value
-    Returns:
-        Product of elements
-    """
-    pass
+        Params:
+            first_value: value for multiply
+            second_value
+        Returns:
+            Product of elements
+        """
+
+    return int(str(first_value)) * int(str(second_value))
 
 
 def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
-    """
-    If possible to convert arguments to int value - convert and multiply them.
-    If it is impossible raise ValueError
-
-    Args:
-        first_value: number for multiply
-        second_value: number for multiply
-
-    Raises:
-        ValueError
-
-    Returns: multiple of two numbers.
-
-    Examples:
-        multiple_ints_with_conversion(6, 6)
-        >>> 36
-        multiple_ints_with_conversion(2, 2.0)
-        >>> 4
-        multiple_ints_with_conversion("12", 1)
-        >>> 12
-        try:
-            multiple_ints_with_conversion("Hello", 2)
-        except ValueError:
-            print("Not valid input data")
-        >>> "Not valid input data"
-    """
-    pass
+    return int(first_value) * int(second_value)
 
 
 def is_word_in_text(word: str, text: str) -> bool:
     """
-    If text contain word return True
-    In another case return False.
+        If text contain word return True
+        In another case return False.
 
-    Args:
-        word: Searchable substring
-        text: Text for searching
+        Args:
+            word: Searchable substring
+            text: Text for searching
 
-    Examples:
-        is_word_in_text("Hello", "Hello word")
-        >>> True
-        is_word_in_text("Glad", "Nice to meet you ")
-        >>> False
+        Examples:
+            is_word_in_text("Hello", "Hello word")
+            >>> True
+            is_word_in_text("Glad", "Nice to meet you ")
+            >>> False
 
-    """
-    pass
+        """
+
+    if word in text:
+        return True
+    else:
+        return False
 
 
 def some_loop_exercise() -> list:
     """
-    Use loop to create list that contain int values from 0 to 12 except 6 and 7
+        Use loop to create list that contain int values from 0 to 12 except 6 and 7
     """
-    pass
+    return [x for x in range(13) if x != 6 and x != 7]
 
 
 def remove_from_list_all_negative_numbers(data: List[int]) -> list:
@@ -116,7 +105,7 @@ def remove_from_list_all_negative_numbers(data: List[int]) -> list:
         remove_from_list_all_negative_numbers([1, 5, -7, 8, -1])
         >>> [1, 5, 8]
     """
-    pass
+    return [x for x in data if x > 0]
 
 
 def alphabet() -> dict:
@@ -127,7 +116,11 @@ def alphabet() -> dict:
         alphabet()
         >>> {"a": 1, "b": 2 ...}
     """
-    pass
+    import string
+    dict_lowercase = {}
+    for i, j in enumerate(string.ascii_lowercase):
+        dict_lowercase[i + 1] = j
+    return dict_lowercase
 
 
 def simple_sort(data: List[int]) -> List[list]:
@@ -139,4 +132,4 @@ def simple_sort(data: List[int]) -> List[list]:
     Returns:
 
     """
-    pass
+    return sorted(data)
