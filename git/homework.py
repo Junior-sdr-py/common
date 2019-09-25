@@ -126,8 +126,8 @@ def remove_from_list_all_negative_numbers(data: List[int]) -> list:
 
 def alphabet() -> dict:
     """
-    Create dict which keys is alphabetic characters. And values their number in alphabet
-    Notes You could see an implementaion of this one in test, but create another one
+    Create which keys are values. And their meanings alphabetic characters.
+    Notes You can see the implementation of this in the test, but create another
     Examples:
         alphabet()
         >>> { 1: 'a',  2: 'b' ...}
@@ -150,9 +150,9 @@ def simple_sort(data: List[int]) -> List[list]:
     """
     for i in range(len(data)-1, 0, -1):
         for j in range(i):
-            if data[j] > data[j+1]:
+            if data[j] > data[j + 1]:
                 temp = data[j]
-                data[j] = data[j+1]
-                data[j+1] = temp
+                data[j] = data[j + 1]
+                data[j + 1] = temp
     return data
 
