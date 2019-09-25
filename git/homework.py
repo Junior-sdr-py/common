@@ -28,7 +28,7 @@ def is_two_objects_has_same_type(first: Any, second: Any) -> bool:
 
 def is_two_objects_is_the_same_objects(first: Any, second: Any) -> bool:
     """
-    If @first and @second has same type should return True
+    If @first and @second has same objects should return True
     In another case should return False
     """
     return id(first) == id(second)
@@ -49,7 +49,7 @@ def multiple_ints(first_value: int, second_value: int) -> int:
     Returns:
         Product of elements
     """
-    if isinstance(first_value,int) and isinstance(second_value,int):
+    if isinstance(first_value, int) and isinstance(second_value, int):
         return first_value*second_value
     else:
         raise ValueError
@@ -104,11 +104,12 @@ def is_word_in_text(word: str, text: str) -> bool:
     return word in text
 
 
-def some_loop_exercise(exept_list=[6,7]) -> list:
+def some_loop_exercise() -> list:
     """
     Use loop to create list that contain int values from 0 to 12 except 6 and 7
     """
-    return [x for x in range(13) if x not in exept_list]
+    except_list = [6, 7]
+    return [x for x in range(13) if x not in except_list]
 
 
 def remove_from_list_all_negative_numbers(data: List[int]) -> list:
@@ -129,7 +130,7 @@ def alphabet() -> dict:
     Notes You could see an implementaion of this one in test, but create another one
     Examples:
         alphabet()
-        >>> { 1:"a",  2:"b" ...}
+        >>> { 1: 'a',  2: 'b' ...}
     """
     import string
     dict_lowercase = {}
@@ -147,11 +148,11 @@ def simple_sort(data: List[int]) -> List[list]:
     Returns:
 
     """
-    for i in range(len(data)-1,0,-1):
+    for i in range(len(data)-1, 0, -1):
         for j in range(i):
             if data[j] > data[j+1]:
-                temp=data[j]
-                data[j]=data[j+1]
-                data[j+1]=temp
+                temp = data[j]
+                data[j] = data[j+1]
+                data[j+1] = temp
     return data
 
