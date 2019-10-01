@@ -92,7 +92,7 @@ def task_6_list_all_supplier_countries(cur) -> list:
     cur.execute("SELECT country FROM suppliers")
 
     return cur.fetchall()
-    pass
+
 
 
 def task_7_list_supplier_countries_in_desc_order(cur) -> list:
@@ -105,7 +105,7 @@ def task_7_list_supplier_countries_in_desc_order(cur) -> list:
     Returns: 29 records in descending order
 
     """
-    pass
+    
     cur.execute("SELECT country FROM suppliers ORDER BY country DESC")
 
     return cur.fetchall()
@@ -138,7 +138,7 @@ def task_9_count_customers_by_country_with_than_10_customers(cur):
     cur.execute("SELECT country, COUNT(country) FROM customers GROUP BY country HAVING COUNT(country) > 10")
     return cur.fetchall()
 
-    pass
+
 
 
 def task_10_list_first_10_customers(cur):
@@ -147,7 +147,7 @@ def task_10_list_first_10_customers(cur):
 
     Results: 10 records
     """
-    pass
+
     cur.execute("SELECT * FROM customers WHERE customerid<11")
     return cur.fetchall()
 
