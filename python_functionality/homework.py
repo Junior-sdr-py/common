@@ -9,29 +9,25 @@ DT = List[ST]
 def task_1_fix_names_start_letter(data: DT) -> DT:
     """
     Make all `names` field in list of students to start from upper letter
-
     Examples:
         fix_names_start_letters([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}])
         >>> [{'name': 'Alex', 'age': 26}, {'name': 'Denys', 'age': 89}]
     """
     for i in data:
-        if 'name' in i:
-            i['name'] = i['name'].title()
+        i.update((k,v.title()) for k,v in i.items() if k=='name')
     return data
 
 
 def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
     """given_data
     Remove from dictionaries given key value
-
     Examples:
        remove_dict_field([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}], 'age')
         >>> [{'name': 'Alex'}, {'name': 'denys'}]
     """
-    for i in data:
-        for y in redundant_keys:
-            del i['{}'.format(y)]
-    return data
+
+
+    return [{key: value for key, value in item.items() if key not in redundant_keys} for item in data]
 
 
 def task_3_find_item_via_value(data: DT, value) -> DT:
@@ -41,19 +37,16 @@ def task_3_find_item_via_value(data: DT, value) -> DT:
             find_item_via_value([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}], 26)
             >>> [{'name': 'Alex', 'age': 26}]
         """
-    data1 = []
-    for i in data:
-        if value in i.values():
-            data1.append(i)
-    return data1
+
+    return list(filter(lambda x:value in x.values(),data))
 
 
 def task_4_min_value_integers(data: List[int]) -> int:
     """
     Find and return minimum value from list
     """
-    if len(data):
-        return min(data)
+
+    return min(data,default=None)
 
 
 def task_5_min_value_strings(data: List[Union[str, int]]) -> str:
@@ -69,7 +62,6 @@ def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
     """
     Find minimum value by given key
     Returns:
-
     """
     for i in data:
         if key not in i:
@@ -96,13 +88,11 @@ def task_9_sum_characters_positions(text: str) -> int:
     Please read first about ascii table.
     https://python-reference.readthedocs.io/en/latest/docs/str/ASCII.html
     You need to calculate sum of decimal value of each symbol in text
-
     Examples:
         task_9_sum_characters_positions("A")
         >>> 65
         task_9_sum_characters_positions("hello")
         >>> 532
-
     """
     return sum([ord(i) for i in text])
 
@@ -120,6 +110,9 @@ def task_10_generator_of_simple_numbers() -> Generator[int, None, None]:
     """
     for num in range(2, 200):
         prime = True
+        if (num > 10):
+            if (num % 2 == 0) or (num % 10 == 5):
+                continue
         for i in range(2, num):
             if num % i == 0:
                 prime = False
