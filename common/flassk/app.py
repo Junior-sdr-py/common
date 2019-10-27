@@ -21,7 +21,7 @@ def vegetables_page():
 
 @app.route('/fruits')
 def fruits_page():
-    fruit_lst = ['melon', 'apple', 'strawberry', 'grape']
+    fruit_lst = ['melon', 'apple', 'strawberry', 'grape ']
     return render_template('fruits.html', list=fruit_lst)
 
 
