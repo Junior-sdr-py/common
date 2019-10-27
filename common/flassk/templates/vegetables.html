@@ -1,0 +1,13 @@
+
+{% extends 'base.html' %}
+{% block print_vegan %}
+    <ul>
+        {% for v in list %}
+            {%if v == 'beetroot'%}
+        <li>{{v |upper}}</li>
+            {%else %}
+            <li>{{v}}</li>
+            {%endif%}
+        {% endfor %}
+    </ul>
+{% endblock %}
