@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index_page():
-    return render_template('base.html')
+    return render_template('home.html')
 
 
 @app.route('/home')
@@ -15,7 +15,7 @@ def home_page():
 
 @app.route('/vegetables')
 def vegetables_page():
-    vegetable_lst =  ["beans", "carrot", "beetroot", "cucumber"]
+    vegetable_lst = ["beans", "carrot", "beetroot", "cucumber"]
     return render_template('vegetables.html', list=vegetable_lst)
 
 
