@@ -1,7 +1,7 @@
 {%extends "base.html"%}
-{%block links%}
+{%block connect%}
 <ul>
-    <li><a href="/vegetables">vegetables</a></li>
-    <li><a href="/fruits">fruits</a></li>
+    <li><a href={{url_for('vegetables_page')}}>vegetables</a></li>
+    <li><a href={{url_for('fruits_page')}}>fruits</a></li>
 </ul>
 {%endblock%}

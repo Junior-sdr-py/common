@@ -7,12 +7,6 @@ app = Flask(__name__)
 def index_page():
     return render_template('home.html')
 
-
-@app.route('/home')
-def home_page():
-    return render_template('home.html')
-
-
 @app.route('/vegetables')
 def vegetables_page():
     vegetable_lst = ["beans", "carrot", "beetroot", "cucumber"]
